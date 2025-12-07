@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Soulforged Sage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        /* Mobile (Default) - Gold/Amber Theme */
+        --color-soul-fire: 251 191 36; /* amber-400 */
+        --color-soul-ice: 254 243 199; /* amber-100 */
+        --color-soul-deep: 69 26 3;    /* amber-950 */
+      }
+
+      @media (min-width: 768px) {
+        /* Desktop - Cyan Theme */
+        :root {
+          --color-soul-fire: 34 211 238; /* cyan-400 */
+          --color-soul-ice: 165 243 252; /* cyan-200 */
+          --color-soul-deep: 8 51 68;    /* cyan-950 */
+        }
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background-color: #000000;
+        color: #e5e7eb;
+        cursor: none;
+        overflow-x: hidden;
+      }
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #050505;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgb(var(--color-soul-fire)); 
+        border-radius: 3px;
+      }
+      
+      a, button, input, textarea, select {
+        cursor: none; 
+      }
+
+      .fluid-bg {
+        background: radial-gradient(
+          600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+          rgb(var(--color-soul-fire) / 0.06), 
+          transparent 40%
+        );
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              obsidian: {
+                darkest: '#000000',
+                DEFAULT: '#050505',
+                light: '#121212',
+                glass: 'rgba(5, 5, 5, 0.7)',
+              },
+              soul: {
+                ice: 'rgb(var(--color-soul-ice) / <alpha-value>)',
+                fire: 'rgb(var(--color-soul-fire) / <alpha-value>)',
+                deep: 'rgb(var(--color-soul-deep) / <alpha-value>)',
+              },
+              bone: {
+                DEFAULT: '#e5e7eb', // gray-200
+                dark: '#9ca3af',    // gray-400
+              }
+            },
+            fontFamily: {
+              serif: ['Cinzel', 'serif'],
+              sans: ['Lato', 'sans-serif'],
+            },
+            animation: {
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'rise': 'rise 10s linear infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              rise: {
+                '0%': { transform: 'translateY(100%) opacity(0)' },
+                '50%': { opacity: '0.5' },
+                '100%': { transform: 'translateY(-20%) opacity(0)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom": "https://aistudiocdn.com/react-dom@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "@emailjs/browser": "https://cdn.jsdelivr.net/npm/@emailjs/browser@3/+esm"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
